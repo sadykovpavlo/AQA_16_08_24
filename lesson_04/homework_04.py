@@ -100,7 +100,7 @@ del(adventures_of_tom_sawyer_sentences[-1])
 """
 
 the_forth_sentence = adventures_of_tom_sawyer_sentences[3]
-print(f"The fourth sentence is :\n{the_forth_sentence}")
+print(f"The fourth sentence is :\n{the_forth_sentence.lower()}")
 
 # task 09
 """ Перевірте чи починається якесь речення з "By the time".
