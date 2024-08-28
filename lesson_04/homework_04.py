@@ -44,14 +44,14 @@ replaced_points_text = replaced_paragraph_text.replace("....", " ")
 # task 03 ==
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
-striped_text = replaced_points_text.replace("  ", "")
+cleaned_sentence = " ".join(replaced_points_text.split())
 
 
 # added some warning in case of extra space remained
-if "  " in striped_text:
+if "  " in cleaned_sentence:
     print("Extra space remained, please check it!")
 
-text_final_version = striped_text
+text_final_version = cleaned_sentence
 
 # Assign  new value to variable according comments to homework
 adventures_of_tom_sawyer = text_final_version
@@ -72,8 +72,9 @@ print(f"The text have {count_h_letter} 'h' letters\n")
 
 # use for to count capital letters
 counted_capital_letter = 0
-for char in text_final_version:
-    if char.isupper():
+words = text_final_version.split()
+for word in words:
+    if word.istitle():
         counted_capital_letter += 1
 
 print(f"The text consist {counted_capital_letter} capital letter")
@@ -83,16 +84,20 @@ print(f"The text consist {counted_capital_letter} capital letter")
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
 
-print(f"Word 'Tom' position: {adventures_of_tom_sawyer.find('Tom', 2)}")
+
+first_position = adventures_of_tom_sawyer.find("Tom")
+if first_position != -1:
+    second_position = adventures_of_tom_sawyer.find("Tom", first_position + 1)
+    print(f"Word 'Tom' position: {second_position}")
+else:
+    print("Word not find")
 
 # task 07
 """ Розділіть змінну adwentures_of_tom_sawer по кінцю речення.
 Збережіть результат у змінній adwentures_of_tom_sawer_sentences
 """
 # here no print, result is list and I use variable adventures_of_tom_sawyer_sentences in the next task
-adventures_of_tom_sawyer_sentences = text_final_version.split('.')
-# KOSTYL after separate text by point at the end list has empty element "" I decided to delete it from list by del()
-del(adventures_of_tom_sawyer_sentences[-1])
+adventures_of_tom_sawyer_sentences = text_final_version.split('. ')
 
 # task 08
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
