@@ -46,25 +46,15 @@ car_data = {
 }
 search_criteria = (2017, 1.6, 36000)
 
-
-car_list_suitable_year = {}
-car_list_suitable_en_capacity = {}
-car_list_suitable_price = {}
-
+suitable_car = {}
+# Search cars by criteria
 for car in car_data:
-  if car_data[car][1] >= search_criteria[0]:
-    car_list_suitable_year[car] = car_data[car]
+    if car_data[car][1] >= search_criteria[0] and car_data[car][2] >= search_criteria[1] \
+            and car_data[car][4] <= search_criteria[2]:
+        suitable_car[car] = car_data[car]
 
-
-for car in car_list_suitable_year:
-  if car_list_suitable_year[car][2] >= search_criteria[1]:
-    car_list_suitable_en_capacity[car] = car_data[car]
-
-for car in car_list_suitable_en_capacity:
-  if car_list_suitable_en_capacity[car][4] <= search_criteria[2]:
-    car_list_suitable_price[car] = car_data[car]
-
-sorted_by_price = sorted(car_list_suitable_price.items(), key=lambda x: x[1][4])
+# Sort car by price
+sorted_by_price = sorted(suitable_car.items(), key=lambda x: x[1][4])
 
 print(f"Машини підбрані по критеріям: {sorted_by_price[:5]}")
 
