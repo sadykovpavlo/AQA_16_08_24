@@ -27,17 +27,9 @@ my_data = ('Pavlo', 'Sadykov', 29, 'QA', 'Malibu')
 # Insert my_data to list people_records at 1st position
 people_records.insert(0, my_data)
 
-# With pop() remove one element with index 5 ps. Index 5 removed first to keep correct index for elements before
-data_with_index_five = people_records.pop(5)
+people_records[1], people_records[5] = people_records[5], people_records[1]
 
-data_with_index_one = people_records.pop(1)
-
-# Insert elements to list
-people_records.insert(1, data_with_index_five)
-
-people_records.insert(5, data_with_index_one)
-
-print("modified list: \n", people_records)
+print(people_records)
 
 
 # Function to check age
